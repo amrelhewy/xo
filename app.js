@@ -50,6 +50,9 @@ io.on("connection", (socket) => {
         io.sockets.connected[clients[1]].on("winnerO", () => {
           io.sockets.in(`room${roomcount}`).emit("OWon");
         });
+        io.sockets.connected[clients[1]].on("draw", () => {
+          io.sockets.in(`room${roomcount}`).emit("drw");
+        });
       });
 
       // roomcount++;
